@@ -16,11 +16,11 @@ or: https://{Your_PRTG_Server_IP_and_Port}/api/loadlookups.htm
 The remaining files are for documentation and testing.
 
 
+
 Adding a New template
 =======================
 Create a new template by creating project under:
-https://gitlab.com/PRTG-Projects/Device-Templates
+https://gitlab.com/PRTG/Device-Templates
 give it a name related to the device manufacturer by Import Project from "Repo URL"
-using: "https://gitlab.com/PRTG-Projects/BaseTemplateProject.git".
+using: "https://{username:password@}gitlab.com/PRTG/PRTGTemplateBase.git".
 Please also check the option to "Mirror Repository" so updates to the base project will be included.
-
