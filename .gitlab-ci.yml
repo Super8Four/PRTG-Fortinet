@@ -26,7 +26,7 @@ PRTGDistZip:
     paths:
       - Custom Sensors
       - devicetemplates
-      - Lookups
+      - lookups
       - MIB
       - notifications
       - snmplibs
