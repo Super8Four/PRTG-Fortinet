@@ -1,0 +1,17 @@
+PRTG Device Template for xxxx devices
+===========================================
+
+Please document and rename this file to "README.md"
+
+This project contains all the files necessary to integrate the XXX
+into PRTG for auto discovery and sensor creation.
+
+Download Instructions
+=========================
+ A zip file containing all the files in the project can be downloaded from the 
+repository(https://gitlab.com/PRTG-Projects/Device-Templates/{ProjectName}/-/jobs/artifacts/master/download?job=PRTGDistZip) 
+download link
+
+Installation Instructions
+=========================
+Please refer to INSTALL.md
