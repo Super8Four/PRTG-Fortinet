@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="oid.fortinet-fortigate-mib.fghwsensor.fghwsensorentalarmstatus" desiredValue="0" undefinedState="Warning">
+    <Lookups>
+      <SingleInt state="Ok" value="0">
+        None
+      </SingleInt>
+      <SingleInt state="Error" value="1">
+        Alert
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>
