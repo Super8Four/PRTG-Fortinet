@@ -15,4 +15,4 @@ Please refer to INSTALL.md or refer to the following KB-Post:
 - [Does PRTG provide native sensors for FortiGate firewalls?](https://kb.paessler.com/en/topic/73911)
 - [FortiNet Technical Note: Adding custom sensor on PRTG SNMP tool using FortiGate OID] (http://kb.fortinet.com/kb/documentLink.do?externalID=FD37222)
 
-[README](README_PRTG)
+[README](README_PRTG.md)
