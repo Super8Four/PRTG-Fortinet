@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="oid.fortinet-fortigate-mib.fghastats.fghastatssyncstatus" desiredValue="1" undefinedState="Warning">
+    <Lookups>
+      <SingleInt state="Error" value="0">
+        Unsynchronized
+      </SingleInt>
+      <SingleInt state="Ok" value="1">
+        Synchronized
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>

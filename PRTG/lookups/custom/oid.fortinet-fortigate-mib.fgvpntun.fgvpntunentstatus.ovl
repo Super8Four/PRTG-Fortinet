@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="oid.fortinet-fortigate-mib.fgvpntun.fgvpntunentstatus" desiredValue="2" undefinedState="Warning">
+    <Lookups>
+      <SingleInt state="Error" value="1">
+        Down
+      </SingleInt>
+      <SingleInt state="OK" value="2">
+        Up
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>
