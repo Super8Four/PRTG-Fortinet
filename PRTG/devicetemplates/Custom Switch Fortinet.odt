@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-  <devicetemplate id="fortiswitch" name="Custom Switch Fortinet FortiSwitch" priority="1" deviceicon="vendors_Fortinet.png">
+  <devicetemplate id="custom" name="Custom Switch Fortinet FortiSwitch" priority="1" deviceicon="vendors_Fortinet.png">
     <check id="ping" meta="ping"/>
     <check id="snmp" meta="snmp" requires="ping"/>
 	<check id="snmp-FORTINETCORE-MIB" meta="snmpnext" requires="snmp">
