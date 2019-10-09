@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="prtg.standardlookups.snmpv2-tc.rowstatus" desiredValue="1" undefinedState="None">
+    <Lookups>
+      <SingleInt state="Ok" value="1">
+        Active
+      </SingleInt>
+      <SingleInt state="None" value="2">
+        Not In Service
+      </SingleInt>
+      <SingleInt state="None" value="3">
+        Not Ready
+      </SingleInt>
+      <SingleInt state="Ok" value="4">
+        Create And Go
+      </SingleInt>
+      <SingleInt state="Ok" value="5">
+        Create And Wait
+      </SingleInt>
+      <SingleInt state="Warning" value="6">
+        Destroy
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>
