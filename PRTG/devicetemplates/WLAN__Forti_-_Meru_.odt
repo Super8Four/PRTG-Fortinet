@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<devicetemplate id="custom" name="WLAN (Forti / Meru)" priority="1" deviceicon="vendors_Fortinet.png">
+	<check id="ping" meta="ping"/>
+	<check id="snmp" meta="snmp" requires="ping"/>
+	<check id="forti.meru.ck" meta="snmpnext" requires="snmp">
+		<metadata>
+			<oid>1.3.6.1.4.1.15983.1</oid>
+		</metadata>
+	</check>
+	
+	<check id="forti.meru.mwSystemGeneral.Health.ck" meta="snmp" requires="forti.meru.ck">
+		<metadata>
+			<oid>1.3.6.1.4.1.15983.1.1.3.1.13.15.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.14.2.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.14.6.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.9.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.10.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.11.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.18.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.17.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.16.0&#x0d;1.3.6.1.4.1.15983.1.1.3.1.13.20.0</oid>
+		</metadata>
+	</check>
+	<create id="forti.meru.mwSystemGeneral.Health" kind="snmpcustomadvanced" requires="forti.meru.mwSystemGeneral.Health.ck" displayname="FortiWLC [1.3.6.1.4.1.15983.1.1.3.1.13.1.0] ([1.3.6.1.4.1.15983.1.1.3.1.13.2.0])">
+		<createdata>
+			<tags>snmpcustomadvanced snmpcustomsensor</tags>
+			<priority>3</priority>
+			<comments/>
+			<primarychannel>3</primarychannel>
+			<position>20</position>
+			<inherittriggers>
+				<flags>
+					<inherited/>
+				</flags>
+				<cell>1</cell>
+			</inherittriggers>
+			<stack>0</stack>
+			<usesingleget/>
+			<usebulkgetnext/>
+			<channel1oid>1.3.6.1.4.1.15983.1.1.3.1.13.15.0</channel1oid>
+			<channel2oid>1.3.6.1.4.1.15983.1.1.3.1.14.2.0</channel2oid>
+			<channel3oid>1.3.6.1.4.1.15983.1.1.3.1.14.6.0</channel3oid>
+			<channel4oid>1.3.6.1.4.1.15983.1.1.3.1.13.9.0</channel4oid>
+			<channel5oid>1.3.6.1.4.1.15983.1.1.3.1.13.10.0</channel5oid>
+			<channel6oid>1.3.6.1.4.1.15983.1.1.3.1.13.11.0</channel6oid>
+			<channel7oid>1.3.6.1.4.1.15983.1.1.3.1.13.18.0</channel7oid>
+			<channel8oid>1.3.6.1.4.1.15983.1.1.3.1.13.17.0</channel8oid>
+			<channel9oid>1.3.6.1.4.1.15983.1.1.3.1.13.16.0</channel9oid>
+			<channel10oid>1.3.6.1.4.1.15983.1.1.3.1.13.20.0</channel10oid>
+			<channel1name>Total Alarms</channel1name>
+			<channel1snmptype>abs</channel1snmptype>
+			<channel1unit>Count</channel1unit>
+			<channel1customunit/>
+			<channel1valuelookup>
+				<cell col="1">None</cell>
+			</channel1valuelookup>
+			<usechannel2>1</usechannel2>
+			<channel2name>System CPU Utilization</channel2name>
+			<channel2snmptype>abs</channel2snmptype>
+			<channel2unit>CPU</channel2unit>
+			<channel2customunit/>
+			<channel2valuelookup>
+				<cell col="1">None</cell>
+			</channel2valuelookup>
+			<usechannel3>1</usechannel3>
+			<channel3name>Memory Free</channel3name>
+			<channel3snmptype>abs</channel3snmptype>
+			<channel3unit>BytesMemory</channel3unit>
+			<channel3customunit/>
+			<channel3valuelookup>
+				<cell col="1">None</cell>
+			</channel3valuelookup>
+			<usechannel4>1</usechannel4>
+			<channel4name>AP&apos;s online</channel4name>
+			<channel4snmptype>abs</channel4snmptype>
+			<channel4unit>Count</channel4unit>
+			<channel4customunit/>
+			<channel4valuelookup>
+				<cell col="1">None</cell>
+			</channel4valuelookup>
+			<usechannel5>1</usechannel5>
+			<channel5name>Offline AP&apos;s</channel5name>
+			<channel5snmptype>abs</channel5snmptype>
+			<channel5unit>Count</channel5unit>
+			<channel5customunit/>
+			<channel5valuelookup>
+				<cell col="1">None</cell>
+			</channel5valuelookup>
+			<usechannel6>1</usechannel6>
+			<channel6name>Total Clients</channel6name>
+			<channel6snmptype>abs</channel6snmptype>
+			<channel6unit>Count</channel6unit>
+			<channel6customunit/>
+			<channel6valuelookup>
+				<cell col="1">None</cell>
+			</channel6valuelookup>
+			<usechannel7>1</usechannel7>
+			<channel7name>Minor Alarms</channel7name>
+			<channel7snmptype>abs</channel7snmptype>
+			<channel7unit>Count</channel7unit>
+			<channel7customunit/>
+			<channel7valuelookup>
+				<cell col="1">None</cell>
+			</channel7valuelookup>
+			<usechannel8>1</usechannel8>
+			<channel8name>Major Alarms</channel8name>
+			<channel8snmptype>abs</channel8snmptype>
+			<channel8unit>Count</channel8unit>
+			<channel8customunit/>
+			<channel8valuelookup>
+				<cell col="1">None</cell>
+			</channel8valuelookup>
+			<usechannel9>1</usechannel9>
+			<channel9name>Critical Alarms</channel9name>
+			<channel9snmptype>abs</channel9snmptype>
+			<channel9unit>Count</channel9unit>
+			<channel9customunit/>
+			<channel9valuelookup>
+				<cell col="1">None</cell>
+			</channel9valuelookup>
+			<usechannel10>1</usechannel10>
+			<channel10name>Rogue Stations</channel10name>
+			<channel10snmptype>abs</channel10snmptype>
+			<channel10unit>Count</channel10unit>
+			<channel10customunit/>
+			<channel10valuelookup>
+				<cell col="1">None</cell>
+			</channel10valuelookup>
+		</createdata>
+		<channeldata primary="3" modulo="0" fix="-1" sum="-1" v="1">
+			<downchannel id="-4">
+				<data>
+					<speedtime>None</speedtime>
+					<mode>Absolute</mode>
+					<spikemode>0</spikemode>
+					<axismode>0</axismode>
+					<limitmode>0</limitmode>
+					<decimaldigits>2</decimaldigits>
+					<kind>Percent</kind>
+					<colmode>0</colmode>
+					<volumesize>None</volumesize>
+					<show>1</show>
+					<percent>0</percent>
+					<nostack>0</nostack>
+					<linewidth>1</linewidth>
+					<showchart>1</showchart>
+					<namereadonly>0</namereadonly>
+					<speedsize>None</speedsize>
+					<name>Downtime</name>
+					<decimalmode>0</decimalmode>
+				</data>
+			</downchannel>
+			<list>
+				<channel id="2">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="1">1</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="1">1</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>2</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Total Alarms</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="3">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>CPU</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="0">80</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="0">90</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>3</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>System CPU Utilization</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="4">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Absolute</mode>
+						<factorm>1024</factorm>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>BytesMemory</kind>
+						<volumesize>Byte</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>Byte</speedsize>
+						<id>4</id>
+						<name>Memory Free</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="5">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>5</id>
+						<name>AP&apos;s online</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="6">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>6</id>
+						<name>Offline AP&apos;s</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="7">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>One</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="1">1</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="1">1</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>One</speedsize>
+						<id>7</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Total Clients</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="8">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="0">1</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="1">1</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>8</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Minor Alarms</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="9">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>One</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="1">1</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="0">1</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>One</speedsize>
+						<id>9</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Major Alarms</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="10">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="1">1</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="0">1</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>10</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Critical Alarms</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="11">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="0">1</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="1">1</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>11</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Rogue Stations</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+			</list>
+		</channeldata>
+		<triggerdata/>
+	
+	</create>	
+	<check id="forti.meru.mwIf80211StatsTable.ck" meta="snmpnext" requires="forti.meru.ck">
+		<metadata>
+			<oid>1.3.6.1.4.1.15983.1.1.3.1.1</oid>
+		</metadata>
+	</check>
+	<create id="forti.meru.mwIf80211StatsTable" kind="snmpcustomtable" meta="snmptable" requires="forti.meru.mwIf80211StatsTable.ck" displayname="Table: mwIf80211StatsTable / EB-IDFA-RMC5-AP03">
+		<metadata>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1</cell>
+				<cell col="1">mwIf80211StatsTable</cell>
+			</tableoid>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.4</cell>
+				<cell col="1">mwIf80211StatsNodeName</cell>
+			</identcolumn>
+		</metadata>
+		<createdata>
+			<tags>snmpcustomsensor snmpcustomtable</tags>
+			<priority>3</priority>
+			<comments/>
+			<primarychannel>2</primarychannel>
+			<position>10</position>
+			<inherittriggers>
+				<flags>
+					<inherited/>
+				</flags>
+				<cell>1</cell>
+			</inherittriggers>
+			<stack>0</stack>
+			<usesingleget/>
+			<usebulkgetnext/>
+			<nametemplate>AP Stats ([1.3.6.1.4.1.15983.1.1.3.1.1.1.1]): [rowidentifier] </nametemplate>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.4</cell>
+				<cell col="1">mwIf80211StatsNodeName</cell>
+			</identcolumn>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1</cell>
+				<cell col="1">mwIf80211StatsTable</cell>
+			</tableoid>
+			<channel1column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.102</cell>
+				<cell col="1">mwIf80211StatsRowStatus</cell>
+			</channel1column>
+			<channel2column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.5</cell>
+				<cell col="1">mwIf80211StatsThroughput</cell>
+			</channel2column>
+			<channel3column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.6</cell>
+				<cell col="1">mwIf80211StatsNoiseLevel</cell>
+			</channel3column>
+			<channel4column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.70</cell>
+				<cell col="1">mwIf80211StatsAssociatedStationCount</cell>
+			</channel4column>
+			<channel5column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.41</cell>
+				<cell col="1">mwIf80211StatsChannelUtilization</cell>
+			</channel5column>
+			<channel6column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.99</cell>
+				<cell col="1">mwIf80211StatsRetryPercentage</cell>
+			</channel6column>
+			<channel7column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.21</cell>
+				<cell col="1">mwIf80211StatsLossPercentage</cell>
+			</channel7column>
+			<channel8column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.9</cell>
+				<cell col="1">mwIf80211StatsRxByteCount</cell>
+			</channel8column>
+			<channel9column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.10</cell>
+				<cell col="1">mwIf80211StatsTxByteCount</cell>
+			</channel9column>
+			<channel10column>
+				<cell col="0">1.3.6.1.4.1.15983.1.1.3.1.1.1.7</cell>
+				<cell col="1">mwIf80211StatsFailedCount</cell>
+			</channel10column>
+			<channel1name>Device Status</channel1name>
+			<channel1snmptype>abs</channel1snmptype>
+			<channel1unit>ValueLookup</channel1unit>
+			<channel1customunit/>
+			<channel1valuelookup>
+				<cell col="0">prtg.standardlookups.snmpv2-tc.rowstatus</cell>
+				<cell col="1">prtg.standardlookups.snmpv2-tc.rowstatus</cell>
+			</channel1valuelookup>
+			<usechannel2>1</usechannel2>
+			<channel2name>Avg Throughput</channel2name>
+			<channel2snmptype>abs</channel2snmptype>
+			<channel2unit>BytesBandwidth</channel2unit>
+			<channel2customunit/>
+			<channel2valuelookup>
+				<cell col="1">None</cell>
+			</channel2valuelookup>
+			<usechannel3>1</usechannel3>
+			<channel3name>Noise Level</channel3name>
+			<channel3snmptype>sign</channel3snmptype>
+			<channel3unit>Custom</channel3unit>
+			<channel3customunit>dB</channel3customunit>
+			<channel3valuelookup>
+				<cell col="1">None</cell>
+			</channel3valuelookup>
+			<usechannel4>1</usechannel4>
+			<channel4name>Associated Stations</channel4name>
+			<channel4snmptype>abs</channel4snmptype>
+			<channel4unit>Count</channel4unit>
+			<channel4customunit/>
+			<channel4valuelookup>
+				<cell col="1">None</cell>
+			</channel4valuelookup>
+			<usechannel5>1</usechannel5>
+			<channel5name>Channel Utilization</channel5name>
+			<channel5snmptype>abs</channel5snmptype>
+			<channel5unit>Percent</channel5unit>
+			<channel5customunit/>
+			<channel5valuelookup>
+				<cell col="1">None</cell>
+			</channel5valuelookup>
+			<usechannel6>1</usechannel6>
+			<channel6name>Retry Percentage</channel6name>
+			<channel6snmptype>abs</channel6snmptype>
+			<channel6unit>Percent</channel6unit>
+			<channel6customunit/>
+			<channel6valuelookup>
+				<cell col="1">None</cell>
+			</channel6valuelookup>
+			<usechannel7>1</usechannel7>
+			<channel7name>Loss Percentage</channel7name>
+			<channel7snmptype>abs</channel7snmptype>
+			<channel7unit>Count</channel7unit>
+			<channel7customunit/>
+			<channel7valuelookup>
+				<cell col="1">None</cell>
+			</channel7valuelookup>
+			<usechannel8>1</usechannel8>
+			<channel8name>Bytes Rx</channel8name>
+			<channel8snmptype>diff</channel8snmptype>
+			<channel8unit>BytesBandwidth</channel8unit>
+			<channel8customunit/>
+			<channel8valuelookup>
+				<cell col="1">None</cell>
+			</channel8valuelookup>
+			<usechannel9>1</usechannel9>
+			<channel9name>Bytes Tx</channel9name>
+			<channel9snmptype>diff</channel9snmptype>
+			<channel9unit>BytesBandwidth</channel9unit>
+			<channel9customunit/>
+			<channel9valuelookup>
+				<cell col="1">None</cell>
+			</channel9valuelookup>
+			<usechannel10>1</usechannel10>
+			<channel10name>Failed Count</channel10name>
+			<channel10snmptype>diff</channel10snmptype>
+			<channel10unit>Count</channel10unit>
+			<channel10customunit/>
+			<channel10valuelookup>
+				<cell col="1">None</cell>
+			</channel10valuelookup>
+		</createdata>
+		<channeldata primary="2" modulo="0" fix="-1" sum="-1" v="1">
+			<downchannel id="-4">
+				<data>
+					<speedtime>None</speedtime>
+					<mode>Absolute</mode>
+					<spikemode>0</spikemode>
+					<axismode>0</axismode>
+					<limitmode>0</limitmode>
+					<decimaldigits>2</decimaldigits>
+					<kind>Percent</kind>
+					<colmode>0</colmode>
+					<volumesize>None</volumesize>
+					<show>1</show>
+					<percent>0</percent>
+					<nostack>0</nostack>
+					<linewidth>1</linewidth>
+					<showchart>1</showchart>
+					<namereadonly>0</namereadonly>
+					<speedsize>None</speedsize>
+					<name>Downtime</name>
+					<decimalmode>0</decimalmode>
+				</data>
+			</downchannel>
+			<list>
+				<channel id="2">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Custom</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<desiredlookupvalue>1</desiredlookupvalue>
+						<id>2</id>
+						<name>Device Status</name>
+						<lookupcrc>800131482</lookupcrc>
+						<decimalmode>0</decimalmode>
+						<valuelookup>prtg.standardlookups.snmpv2-tc.rowstatus</valuelookup>
+					</data>
+				</channel>
+				<channel id="3">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">0,0009765625</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">0,0009765625</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>BytesBandwidth</kind>
+						<axismin>
+							<cell col="1">0,0009765625</cell>
+						</axismin>
+						<volumesize>KiloByte</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="1">0,0009765625</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">0,0009765625</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">0,0009765625</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">0,0009765625</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="1">0,0009765625</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>KiloBit</speedsize>
+						<id>3</id>
+						<ref100percent>
+							<cell col="1">0,0009765625</cell>
+						</ref100percent>
+						<name>Avg Throughput</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="4">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<customunit>dB</customunit>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Custom</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>4</id>
+						<name>Noise Level</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="5">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>5</id>
+						<name>Associated Stations</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="6">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Percent</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="0">75</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="0">90</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>6</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Channel Utilization</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="7">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Percent</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="0">10</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="0">50</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>7</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Retry Percentage</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="8">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>1</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<limitmaxwarning>
+							<cell col="0">20</cell>
+						</limitmaxwarning>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<namereadonly>0</namereadonly>
+						<limitmaxerror>
+							<cell col="0">50</cell>
+						</limitmaxerror>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>8</id>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<name>Loss Percentage</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="9">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Difference</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>BytesBandwidth</kind>
+						<volumesize>KiloByte</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>KiloBit</speedsize>
+						<id>9</id>
+						<name>Bytes Rx</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="10">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Difference</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>BytesBandwidth</kind>
+						<volumesize>KiloByte</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>KiloBit</speedsize>
+						<id>10</id>
+						<name>Bytes Tx</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="11">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Difference</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<volumesize>One</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>One</speedsize>
+						<id>11</id>
+						<name>Failed Count</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+			</list>
+		</channeldata>
+		<triggerdata/>
+	</create>
+
+</devicetemplate>
