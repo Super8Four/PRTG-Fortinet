@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="oid.fortinet.fgWcWtpTables" desiredValue="2" undefinedState="Warning">
+    <Lookups>
+      <SingleInt state="Error" value="0">
+        Other
+      </SingleInt>
+      <SingleInt state="Error" value="1">
+        Offline
+      </SingleInt>
+      <SingleInt state="Ok" value="2">
+        Online
+      </SingleInt>
+      <SingleInt state="Warning" value="3">
+        Downloading Image
+      </SingleInt>
+      <SingleInt state="Warning" value="4">
+        Connected Image
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>
