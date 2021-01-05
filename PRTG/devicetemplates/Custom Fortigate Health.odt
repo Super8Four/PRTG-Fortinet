@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<devicetemplate id="custom" name="Custom Fortigate Health v0.7" priority="1" deviceicon="vendors_Fortinet.png">
+<devicetemplate id="custom" name="Custom Fortigate Health v0.8" priority="1" deviceicon="vendors_Fortinet.png">
 	<check id="ping" meta="ping"/>
 	<check id="snmp" meta="snmp" requires="ping"/>
 	<check id="snmp_fgSys" meta="snmp" requires="snmp">
@@ -1325,6 +1325,217 @@
 		</channeldata>
 		<triggerdata/>
 	</create>
+	<check id="snmp_fgVpnDialupTable" meta="snmpnext" requires="snmp">
+		<metadata>
+			<oid>1.3.6.1.4.1.12356.101.12.2.1</oid>
+		</metadata>
+	</check>
+	<create id="_snmp_fgVpnDialupTable" kind="snmpcustomtable" meta="snmptable" requires="snmp_fgVpnDialupTable" displayname="Fortigate VPN: XXX">
+		<metadata>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.12356.101.12.2.1</cell>
+				<cell col="1">fgVpnDialupTable</cell>
+			</tableoid>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.12356.101.12.2.1.1.2</cell>
+				<cell col="1">fgVpnDialupGateway</cell>
+			</identcolumn>
+		</metadata>
+		<createdata>
+			<tags>snmpcustomsensor snmpcustomtable fortigate vpn</tags>
+			<priority>3</priority>
+			<comments/>
+			<primarychannel>2</primarychannel>
+			<position>20</position>
+			<inherittriggers>
+				<flags>
+					<inherited/>
+				</flags>
+				<cell>1</cell>
+			</inherittriggers>
+			<stack>0</stack>
+			<usesingleget/>
+			<nametemplate>Fortigate VPN (Dial-Up): ([rowidentifier])</nametemplate>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.12356.101.12.2.1.1.2</cell>
+				<cell col="1">fgVpnDialupGateway</cell>
+			</identcolumn>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.12356.101.12.2.1</cell>
+				<cell col="1">fgVpnDialupTable</cell>
+			</tableoid>
+			<channel1column>
+				<cell col="0">1.3.6.1.4.1.12356.101.12.2.1.1.9</cell>
+				<cell col="1">fgVpnDialupInOctets</cell>
+			</channel1column>
+			<channel2column>
+				<cell col="0">1.3.6.1.4.1.12356.101.12.2.1.1.10</cell>
+				<cell col="1">fgVpnDialupOutOctets</cell>
+			</channel2column>
+			<channel3column/>
+			<channel4column/>
+			<channel5column/>
+			<channel6column/>
+			<channel7column/>
+			<channel8column/>
+			<channel9column/>
+			<channel10column/>
+			<channel1name>Traffic In</channel1name>
+			<channel1snmptype>diff</channel1snmptype>
+			<channel1unit>BytesBandwidth</channel1unit>
+			<channel1customunit/>
+			<channel1valuelookup>
+				<cell col="1">None</cell>
+			</channel1valuelookup>
+			<usechannel2>1</usechannel2>
+			<channel2name>Traffic Out</channel2name>
+			<channel2snmptype>diff</channel2snmptype>
+			<channel2unit>BytesBandwidth</channel2unit>
+			<channel2customunit/>
+			<channel2valuelookup>
+				<cell col="1">None</cell>
+			</channel2valuelookup>
+			<usechannel3>0</usechannel3>
+			<channel3name/>
+			<channel3snmptype>abs</channel3snmptype>
+			<channel3unit>Count</channel3unit>
+			<channel3customunit/>
+			<channel3valuelookup>
+				<cell col="1">None</cell>
+			</channel3valuelookup>
+			<usechannel4>0</usechannel4>
+			<channel4name/>
+			<channel4snmptype>abs</channel4snmptype>
+			<channel4unit>Count</channel4unit>
+			<channel4customunit/>
+			<channel4valuelookup>
+				<cell col="1">None</cell>
+			</channel4valuelookup>
+			<usechannel5>0</usechannel5>
+			<channel5name/>
+			<channel5snmptype>abs</channel5snmptype>
+			<channel5unit>Count</channel5unit>
+			<channel5customunit/>
+			<channel5valuelookup>
+				<cell col="1">None</cell>
+			</channel5valuelookup>
+			<usechannel6>0</usechannel6>
+			<channel6name/>
+			<channel6snmptype>abs</channel6snmptype>
+			<channel6unit>Count</channel6unit>
+			<channel6customunit/>
+			<channel6valuelookup>
+				<cell col="1">None</cell>
+			</channel6valuelookup>
+			<usechannel7>0</usechannel7>
+			<channel7name/>
+			<channel7snmptype>abs</channel7snmptype>
+			<channel7unit>Count</channel7unit>
+			<channel7customunit/>
+			<channel7valuelookup>
+				<cell col="1">None</cell>
+			</channel7valuelookup>
+			<usechannel8>0</usechannel8>
+			<channel8name/>
+			<channel8snmptype>abs</channel8snmptype>
+			<channel8unit>Count</channel8unit>
+			<channel8customunit/>
+			<channel8valuelookup>
+				<cell col="1">None</cell>
+			</channel8valuelookup>
+			<usechannel9>0</usechannel9>
+			<channel9name/>
+			<channel9snmptype>abs</channel9snmptype>
+			<channel9unit>Count</channel9unit>
+			<channel9customunit/>
+			<channel9valuelookup>
+				<cell col="1">None</cell>
+			</channel9valuelookup>
+			<usechannel10>0</usechannel10>
+			<channel10name/>
+			<channel10snmptype>abs</channel10snmptype>
+			<channel10unit>Count</channel10unit>
+			<channel10customunit/>
+			<channel10valuelookup>
+				<cell col="1">None</cell>
+			</channel10valuelookup>
+		</createdata>
+		<channeldata primary="2" modulo="0" fix="-1" sum="-1" v="1">
+			<downchannel id="-4">
+				<data>
+					<axismode>0</axismode>
+					<colmode>0</colmode>
+					<decimaldigits>2</decimaldigits>
+					<decimalmode>0</decimalmode>
+					<kind>Percent</kind>
+					<limitmode>0</limitmode>
+					<linewidth>1</linewidth>
+					<mode>Absolute</mode>
+					<name>Downtime</name>
+					<namereadonly>0</namereadonly>
+					<nostack>0</nostack>
+					<percent>0</percent>
+					<show>1</show>
+					<showchart>1</showchart>
+					<speedsize>None</speedsize>
+					<speedtime>None</speedtime>
+					<spikemode>0</spikemode>
+					<volumesize>None</volumesize>
+				</data>
+			</downchannel>
+			<list>
+				<channel id="2">
+					<data>
+						<avgmode>0</avgmode>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<id>2</id>
+						<kind>BytesBandwidth</kind>
+						<limitmode>0</limitmode>
+						<linewidth>1</linewidth>
+						<mode>Difference</mode>
+						<name>Traffic In</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>KiloBit</speedsize>
+						<speedtime>Second</speedtime>
+						<spikemode>0</spikemode>
+						<volumesize>KiloByte</volumesize>
+					</data>
+				</channel>
+				<channel id="3">
+					<data>
+						<avgmode>0</avgmode>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<id>3</id>
+						<kind>BytesBandwidth</kind>
+						<limitmode>0</limitmode>
+						<linewidth>1</linewidth>
+						<mode>Difference</mode>
+						<name>Traffic Out</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>KiloBit</speedsize>
+						<speedtime>Second</speedtime>
+						<spikemode>0</spikemode>
+						<volumesize>KiloByte</volumesize>
+					</data>
+				</channel>
+			</list>
+		</channeldata>
+		<triggerdata/>
+	</create>
 	<check id="snmp_fgLinkMonitorTable" meta="snmpnext" requires="snmp">
 		<metadata>
 			<oid>1.3.6.1.4.1.12356.101.4.8.2</oid>
@@ -1676,830 +1887,354 @@
 		<triggerdata/>
 	</create>
 	<check id="snmp_fgWcWtpSessionTable" meta="snmpnext" requires="snmp">
-      <metadata>
-        <oid>
-          1.3.6.1.4.1.12356.101.14.4.4
-        </oid>
-      </metadata>
-    </check>
-    <create id="_snmp_fgWcWtpSessionTable" kind="snmpcustomtable" meta="snmptable" requires="snmp_fgWcWtpSessionTable" displayname="FortiAP (XX)">
-      <metadata>
-        <tableoid>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionTable
-          </cell>
-        </tableoid>
-        <identcolumn>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.1
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpId
-          </cell>
-        </identcolumn>
-      </metadata>
-      <createdata>
-        <tags>
-          snmpcustomsensor snmpcustomtable fortigate fortiap
-        </tags>
-        <priority>
-          3
-        </priority>
-        <comments/>
-        <primarychannel>
-          2
-        </primarychannel>
-        <position>
-          90
-        </position>
-        <inherittriggers>
-          <flags>
-            <inherited/>
-          </flags>
-          <cell>
-            1
-          </cell>
-        </inherittriggers>
-        <stack>
-          0
-        </stack>
-        <usesingleget/>
-        <usebulkgetnext/>
-        <nametemplate>
-          FortiAP ([rowidentifier])
-        </nametemplate>
-        <identcolumn>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.1
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpId
-          </cell>
-        </identcolumn>
-        <tableoid>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionTable
-          </cell>
-        </tableoid>
-        <channel1column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.7
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionConnectionState
-          </cell>
-        </channel1column>
-        <channel2column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.8
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpUpTime
-          </cell>
-        </channel2column>
-        <channel3column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.17
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpStationCount
-          </cell>
-        </channel3column>
-        <channel4column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.18
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpByteRxCount
-          </cell>
-        </channel4column>
-        <channel5column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.19
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpByteTxCount
-          </cell>
-        </channel5column>
-        <channel6column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.20
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpCpuUsage
-          </cell>
-        </channel6column>
-        <channel7column>
-          <cell col="0">
-            1.3.6.1.4.1.12356.101.14.4.4.1.21
-          </cell>
-          <cell col="1">
-            fgWcWtpSessionWtpMemoryUsage
-          </cell>
-        </channel7column>
-        <channel8column/>
-        <channel9column/>
-        <channel10column/>
-        <channel1name>
-          State
-        </channel1name>
-        <channel1snmptype>
-          abs
-        </channel1snmptype>
-        <channel1unit>
-          ValueLookup
-        </channel1unit>
-        <channel1customunit/>
-        <channel1valuelookup>
-          <cell col="0">
-            oid.fortinet.fgwcwtptables
-          </cell>
-          <cell col="1">
-            oid.fortinet.fgwcwtptables
-          </cell>
-        </channel1valuelookup>
-        <usechannel2>
-          1
-        </usechannel2>
-        <channel2name>
-          Uptime (ms)
-        </channel2name>
-        <channel2snmptype>
-          abs
-        </channel2snmptype>
-        <channel2unit>
-          Count
-        </channel2unit>
-        <channel2customunit/>
-        <channel2valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel2valuelookup>
-        <usechannel3>
-          1
-        </usechannel3>
-        <channel3name>
-          Clients Connected
-        </channel3name>
-        <channel3snmptype>
-          sign
-        </channel3snmptype>
-        <channel3unit>
-          Count
-        </channel3unit>
-        <channel3customunit/>
-        <channel3valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel3valuelookup>
-        <usechannel4>
-          1
-        </usechannel4>
-        <channel4name>
-          Traffic In
-        </channel4name>
-        <channel4snmptype>
-          abs
-        </channel4snmptype>
-        <channel4unit>
-          BytesBandwidth
-        </channel4unit>
-        <channel4customunit/>
-        <channel4valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel4valuelookup>
-        <usechannel5>
-          1
-        </usechannel5>
-        <channel5name>
-          Traffic Out
-        </channel5name>
-        <channel5snmptype>
-          abs
-        </channel5snmptype>
-        <channel5unit>
-          BytesBandwidth
-        </channel5unit>
-        <channel5customunit/>
-        <channel5valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel5valuelookup>
-        <usechannel6>
-          1
-        </usechannel6>
-        <channel6name>
-          CPU Usage
-        </channel6name>
-        <channel6snmptype>
-          abs
-        </channel6snmptype>
-        <channel6unit>
-          Percent
-        </channel6unit>
-        <channel6customunit/>
-        <channel6valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel6valuelookup>
-        <usechannel7>
-          1
-        </usechannel7>
-        <channel7name>
-          Memory Usage
-        </channel7name>
-        <channel7snmptype>
-          abs
-        </channel7snmptype>
-        <channel7unit>
-          Percent
-        </channel7unit>
-        <channel7customunit/>
-        <channel7valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel7valuelookup>
-        <usechannel8>
-          0
-        </usechannel8>
-        <channel8name/>
-        <channel8snmptype>
-          abs
-        </channel8snmptype>
-        <channel8unit>
-          Count
-        </channel8unit>
-        <channel8customunit/>
-        <channel8valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel8valuelookup>
-        <usechannel9>
-          0
-        </usechannel9>
-        <channel9name/>
-        <channel9snmptype>
-          abs
-        </channel9snmptype>
-        <channel9unit>
-          Count
-        </channel9unit>
-        <channel9customunit/>
-        <channel9valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel9valuelookup>
-        <usechannel10>
-          0
-        </usechannel10>
-        <channel10name/>
-        <channel10snmptype>
-          abs
-        </channel10snmptype>
-        <channel10unit>
-          Count
-        </channel10unit>
-        <channel10customunit/>
-        <channel10valuelookup>
-          <cell col="1">
-            None
-          </cell>
-        </channel10valuelookup>
-      </createdata>
-      <channeldata primary="2" modulo="0" fix="-1" sum="-1" v="1">
-        <downchannel id="-4">
-          <data>
-            <speedtime>
-              None
-            </speedtime>
-            <mode>
-              Absolute
-            </mode>
-            <spikemode>
-              0
-            </spikemode>
-            <axismode>
-              0
-            </axismode>
-            <limitmode>
-              0
-            </limitmode>
-            <decimaldigits>
-              2
-            </decimaldigits>
-            <kind>
-              Percent
-            </kind>
-            <colmode>
-              0
-            </colmode>
-            <volumesize>
-              None
-            </volumesize>
-            <show>
-              1
-            </show>
-            <percent>
-              0
-            </percent>
-            <nostack>
-              0
-            </nostack>
-            <linewidth>
-              1
-            </linewidth>
-            <showchart>
-              1
-            </showchart>
-            <namereadonly>
-              0
-            </namereadonly>
-            <speedsize>
-              None
-            </speedsize>
-            <name>
-              Downtime
-            </name>
-            <decimalmode>
-              0
-            </decimalmode>
-          </data>
-        </downchannel>
-        <list>
-          <channel id="2">
-            <data>
-              <speedtime>
-                None
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                Custom
-              </kind>
-              <volumesize>
-                None
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                None
-              </speedsize>
-              <desiredlookupvalue>
-                2
-              </desiredlookupvalue>
-              <id>
-                2
-              </id>
-              <name>
-                State
-              </name>
-              <lookupcrc>
-                693371297
-              </lookupcrc>
-              <decimalmode>
-                0
-              </decimalmode>
-              <valuelookup>
-                oid.fortinet.fgwcwtptables
-              </valuelookup>
-            </data>
-          </channel>
-          <channel id="3">
-            <data>
-              <speedtime>
-                None
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                Count
-              </kind>
-              <volumesize>
-                None
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                None
-              </speedsize>
-              <id>
-                3
-              </id>
-              <name>
-                Uptime (ms)
-              </name>
-              <decimalmode>
-                0
-              </decimalmode>
-            </data>
-          </channel>
-          <channel id="4">
-            <data>
-              <speedtime>
-                None
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                Count
-              </kind>
-              <volumesize>
-                None
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                None
-              </speedsize>
-              <id>
-                4
-              </id>
-              <name>
-                Clients Connected
-              </name>
-              <decimalmode>
-                0
-              </decimalmode>
-            </data>
-          </channel>
-          <channel id="5">
-            <data>
-              <speedtime>
-                Second
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                BytesBandwidth
-              </kind>
-              <volumesize>
-                KiloByte
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                KiloBit
-              </speedsize>
-              <id>
-                5
-              </id>
-              <name>
-                Traffic In
-              </name>
-              <decimalmode>
-                0
-              </decimalmode>
-            </data>
-          </channel>
-          <channel id="6">
-            <data>
-              <speedtime>
-                Second
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                BytesBandwidth
-              </kind>
-              <volumesize>
-                KiloByte
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                KiloBit
-              </speedsize>
-              <id>
-                6
-              </id>
-              <name>
-                Traffic Out
-              </name>
-              <decimalmode>
-                0
-              </decimalmode>
-            </data>
-          </channel>
-          <channel id="7">
-            <data>
-              <speedtime>
-                None
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                Percent
-              </kind>
-              <volumesize>
-                None
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                None
-              </speedsize>
-              <id>
-                7
-              </id>
-              <name>
-                CPU Usage
-              </name>
-              <decimalmode>
-                0
-              </decimalmode>
-            </data>
-          </channel>
-          <channel id="8">
-            <data>
-              <speedtime>
-                None
-              </speedtime>
-              <mode>
-                Absolute
-              </mode>
-              <spikemode>
-                0
-              </spikemode>
-              <axismode>
-                0
-              </axismode>
-              <limitmode>
-                0
-              </limitmode>
-              <decimaldigits>
-                0
-              </decimaldigits>
-              <colmode>
-                0
-              </colmode>
-              <kind>
-                Percent
-              </kind>
-              <volumesize>
-                None
-              </volumesize>
-              <show>
-                1
-              </show>
-              <percent>
-                0
-              </percent>
-              <nostack>
-                0
-              </nostack>
-              <linewidth>
-                1
-              </linewidth>
-              <showchart>
-                1
-              </showchart>
-              <namereadonly>
-                0
-              </namereadonly>
-              <avgmode>
-                0
-              </avgmode>
-              <speedsize>
-                None
-              </speedsize>
-              <id>
-                8
-              </id>
-              <name>
-                Memory Usage
-              </name>
-              <decimalmode>
-                0
-              </decimalmode>
-            </data>
-          </channel>
-        </list>
-      </channeldata>
-      <triggerdata/>
-    </create>
+		<metadata>
+			<oid>1.3.6.1.4.1.12356.101.14.4.4</oid>
+		</metadata>
+	</check>
+	<create id="_snmp_fgWcWtpSessionTable" kind="snmpcustomtable" meta="snmptable" requires="snmp_fgWcWtpSessionTable" displayname="FortiAP (XX)">
+		<metadata>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4</cell>
+				<cell col="1">fgWcWtpSessionTable</cell>
+			</tableoid>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.1</cell>
+				<cell col="1">fgWcWtpSessionWtpId</cell>
+			</identcolumn>
+		</metadata>
+		<createdata>
+			<tags>snmpcustomsensor snmpcustomtable fortigate fortiap</tags>
+			<priority>3</priority>
+			<comments/>
+			<primarychannel>2</primarychannel>
+			<position>90</position>
+			<inherittriggers>
+				<flags>
+					<inherited/>
+				</flags>
+				<cell>1</cell>
+			</inherittriggers>
+			<stack>0</stack>
+			<usesingleget/>
+			<usebulkgetnext/>
+			<nametemplate>FortiAP ([rowidentifier])</nametemplate>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.1</cell>
+				<cell col="1">fgWcWtpSessionWtpId</cell>
+			</identcolumn>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4</cell>
+				<cell col="1">fgWcWtpSessionTable</cell>
+			</tableoid>
+			<channel1column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.7</cell>
+				<cell col="1">fgWcWtpSessionConnectionState</cell>
+			</channel1column>
+			<channel2column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.8</cell>
+				<cell col="1">fgWcWtpSessionWtpUpTime</cell>
+			</channel2column>
+			<channel3column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.17</cell>
+				<cell col="1">fgWcWtpSessionWtpStationCount</cell>
+			</channel3column>
+			<channel4column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.18</cell>
+				<cell col="1">fgWcWtpSessionWtpByteRxCount</cell>
+			</channel4column>
+			<channel5column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.19</cell>
+				<cell col="1">fgWcWtpSessionWtpByteTxCount</cell>
+			</channel5column>
+			<channel6column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.20</cell>
+				<cell col="1">fgWcWtpSessionWtpCpuUsage</cell>
+			</channel6column>
+			<channel7column>
+				<cell col="0">1.3.6.1.4.1.12356.101.14.4.4.1.21</cell>
+				<cell col="1">fgWcWtpSessionWtpMemoryUsage</cell>
+			</channel7column>
+			<channel8column/>
+			<channel9column/>
+			<channel10column/>
+			<channel1name>State</channel1name>
+			<channel1snmptype>abs</channel1snmptype>
+			<channel1unit>ValueLookup</channel1unit>
+			<channel1customunit/>
+			<channel1valuelookup>
+				<cell col="0">oid.fortinet.fgwcwtptables</cell>
+				<cell col="1">oid.fortinet.fgwcwtptables</cell>
+			</channel1valuelookup>
+			<usechannel2>1</usechannel2>
+			<channel2name>Uptime (ms)</channel2name>
+			<channel2snmptype>abs</channel2snmptype>
+			<channel2unit>Count</channel2unit>
+			<channel2customunit/>
+			<channel2valuelookup>
+				<cell col="1">None</cell>
+			</channel2valuelookup>
+			<usechannel3>1</usechannel3>
+			<channel3name>Clients Connected</channel3name>
+			<channel3snmptype>sign</channel3snmptype>
+			<channel3unit>Count</channel3unit>
+			<channel3customunit/>
+			<channel3valuelookup>
+				<cell col="1">None</cell>
+			</channel3valuelookup>
+			<usechannel4>1</usechannel4>
+			<channel4name>Traffic In</channel4name>
+			<channel4snmptype>abs</channel4snmptype>
+			<channel4unit>BytesBandwidth</channel4unit>
+			<channel4customunit/>
+			<channel4valuelookup>
+				<cell col="1">None</cell>
+			</channel4valuelookup>
+			<usechannel5>1</usechannel5>
+			<channel5name>Traffic Out</channel5name>
+			<channel5snmptype>abs</channel5snmptype>
+			<channel5unit>BytesBandwidth</channel5unit>
+			<channel5customunit/>
+			<channel5valuelookup>
+				<cell col="1">None</cell>
+			</channel5valuelookup>
+			<usechannel6>1</usechannel6>
+			<channel6name>CPU Usage</channel6name>
+			<channel6snmptype>abs</channel6snmptype>
+			<channel6unit>Percent</channel6unit>
+			<channel6customunit/>
+			<channel6valuelookup>
+				<cell col="1">None</cell>
+			</channel6valuelookup>
+			<usechannel7>1</usechannel7>
+			<channel7name>Memory Usage</channel7name>
+			<channel7snmptype>abs</channel7snmptype>
+			<channel7unit>Percent</channel7unit>
+			<channel7customunit/>
+			<channel7valuelookup>
+				<cell col="1">None</cell>
+			</channel7valuelookup>
+			<usechannel8>0</usechannel8>
+			<channel8name/>
+			<channel8snmptype>abs</channel8snmptype>
+			<channel8unit>Count</channel8unit>
+			<channel8customunit/>
+			<channel8valuelookup>
+				<cell col="1">None</cell>
+			</channel8valuelookup>
+			<usechannel9>0</usechannel9>
+			<channel9name/>
+			<channel9snmptype>abs</channel9snmptype>
+			<channel9unit>Count</channel9unit>
+			<channel9customunit/>
+			<channel9valuelookup>
+				<cell col="1">None</cell>
+			</channel9valuelookup>
+			<usechannel10>0</usechannel10>
+			<channel10name/>
+			<channel10snmptype>abs</channel10snmptype>
+			<channel10unit>Count</channel10unit>
+			<channel10customunit/>
+			<channel10valuelookup>
+				<cell col="1">None</cell>
+			</channel10valuelookup>
+		</createdata>
+		<channeldata primary="2" modulo="0" fix="-1" sum="-1" v="1">
+			<downchannel id="-4">
+				<data>
+					<speedtime>None</speedtime>
+					<mode>Absolute</mode>
+					<spikemode>0</spikemode>
+					<axismode>0</axismode>
+					<limitmode>0</limitmode>
+					<decimaldigits>2</decimaldigits>
+					<kind>Percent</kind>
+					<colmode>0</colmode>
+					<volumesize>None</volumesize>
+					<show>1</show>
+					<percent>0</percent>
+					<nostack>0</nostack>
+					<linewidth>1</linewidth>
+					<showchart>1</showchart>
+					<namereadonly>0</namereadonly>
+					<speedsize>None</speedsize>
+					<name>Downtime</name>
+					<decimalmode>0</decimalmode>
+				</data>
+			</downchannel>
+			<list>
+				<channel id="2">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Custom</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<desiredlookupvalue>2</desiredlookupvalue>
+						<id>2</id>
+						<name>State</name>
+						<lookupcrc>693371297</lookupcrc>
+						<decimalmode>0</decimalmode>
+						<valuelookup>oid.fortinet.fgwcwtptables</valuelookup>
+					</data>
+				</channel>
+				<channel id="3">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>3</id>
+						<name>Uptime (ms)</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="4">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Count</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>4</id>
+						<name>Clients Connected</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="5">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>BytesBandwidth</kind>
+						<volumesize>KiloByte</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>KiloBit</speedsize>
+						<id>5</id>
+						<name>Traffic In</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="6">
+					<data>
+						<speedtime>Second</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>BytesBandwidth</kind>
+						<volumesize>KiloByte</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>KiloBit</speedsize>
+						<id>6</id>
+						<name>Traffic Out</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="7">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Percent</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>7</id>
+						<name>CPU Usage</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+				<channel id="8">
+					<data>
+						<speedtime>None</speedtime>
+						<mode>Absolute</mode>
+						<spikemode>0</spikemode>
+						<axismode>0</axismode>
+						<limitmode>0</limitmode>
+						<decimaldigits>0</decimaldigits>
+						<colmode>0</colmode>
+						<kind>Percent</kind>
+						<volumesize>None</volumesize>
+						<show>1</show>
+						<percent>0</percent>
+						<nostack>0</nostack>
+						<linewidth>1</linewidth>
+						<showchart>1</showchart>
+						<namereadonly>0</namereadonly>
+						<avgmode>0</avgmode>
+						<speedsize>None</speedsize>
+						<id>8</id>
+						<name>Memory Usage</name>
+						<decimalmode>0</decimalmode>
+					</data>
+				</channel>
+			</list>
+		</channeldata>
+		<triggerdata/>
+	</create>
 </devicetemplate>
